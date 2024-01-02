@@ -8,7 +8,7 @@
 # Specify Kernel Directory
 KERNEL_DIR="$(pwd)"
 
-DEFCONFIG=vendor/meteoric_defconfig
+DEFCONFIG=vendor/pong_defconfig
 read -p "Type kernel version: " KERNEL_VER
 VERSION=V$KERNEL_VER
 ANYKERNEL3_DIR=$KERNEL_DIR/anykernel
@@ -35,7 +35,7 @@ VERBOSE=0
 KERVER=$(make kernelversion)
 
 # Specify Final Zip Name
-ZIPNAME=Meteoric
+ZIPNAME=Azrael
 
 ##----------------------------------------------------------##
 # Specify Linker
@@ -62,7 +62,7 @@ cyan='\033[0;36m'
 read -p "Include KernelSU? (y/n) " KSU_RESP 
 case $KSU_RESP in
     [yY] )
-        ZIPNAME=Meteoric-KernelSU
+        ZIPNAME=Azrael-KernelSU
         KSU_CONFIG=ksu.config
         ;;
 esac
@@ -155,7 +155,7 @@ function compile() {
     V=$VERBOSE 2>&1 | tee out/error.log
 
     # KernelSU
-    if [ $ZIPNAME = "Meteoric-KernelSU" ]; then
+    if [ $ZIPNAME = "Azrael-KernelSU" ]; then
         sed -i 's/CONFIG_KERNELSU=y/# CONFIG_KERNELSU is not set/g' out/.config
         sed -i '/CONFIG_KERNELSU=y/d' out/defconfig
         

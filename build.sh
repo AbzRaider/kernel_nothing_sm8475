@@ -243,6 +243,12 @@ function zipping() {
     echo -e "***********************************************$nocol"
 }
 
+function upload()
+{
+  cd out
+  curl --upload-file *.zip https://free.keep.sh 
+  cd ..
+}
 ##----------------------------------------------------------##
 
 cloneTC
@@ -253,5 +259,5 @@ BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
 echo -e "$blue Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds.$nocol"
 zipping
-
+upload
 ##----------------------------------------------------------##

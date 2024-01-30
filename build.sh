@@ -43,7 +43,7 @@ LINKER=ld.lld
 
 ##----------------------------------------------------------##
 # Specify compiler
-COMPILER=neutron
+COMPILER=proton
 
 ##----------------------------------------------------------##
 # Sigint detection
